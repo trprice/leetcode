@@ -16,16 +16,28 @@ std::string ReverseWords::reverse ()
         else
             this->output.append (this->input.substr (found, last_found-found));
 
+        // If the last space found was at the beginning of the line,
+        // return since we just appended to the output string.
+        if (found == 0)
+            return this->output;
+
         last_found = found;
         found = this->input.find_last_of (' ', found-1);
 
         // If we found two spaces in a row, look again.
-        if ((last_found - found) == 1)
+        while ((last_found - found) == 1)
+        {
+            if (found == 0)
+                return this->output;
+
             found = this->input.find_last_of (' ', found-1);
+        }
     }
 
     // Catch the last/first word
-    this->output.append (" ");
+    if (last_found != length)
+        this->output.append (" ");
+
     this->output.append (this->input.substr (0, last_found));
 
     return this->output;

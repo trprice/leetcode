@@ -14,10 +14,22 @@ int main ()
     ReverseWords two_spaces("there  are two spaces");
     cout << "Input String: " << two_spaces.get_input_string() << endl;
     cout << "Output String: " << two_spaces.reverse() << endl;
+
+    ReverseWords three_spaces("there   are three spaces");
+    cout << "Input String: " << three_spaces.get_input_string() << endl;
+    cout << "Output String: " << three_spaces.reverse() << endl;
     
     ReverseWords beginning_space(" there is a beginning space");
     cout << "Input String: " << beginning_space.get_input_string() << endl;
     cout << "Output String: " << beginning_space.reverse() << endl;
+    
+    ReverseWords two_beginning_spaces("  there are two beginning spaces");
+    cout << "Input String: " << two_beginning_spaces.get_input_string() << endl;
+    cout << "Output String: " << two_beginning_spaces.reverse() << endl;
+    
+    ReverseWords three_beginning_spaces("   there are three beginning spaces");
+    cout << "Input String: " << three_beginning_spaces.get_input_string() << endl;
+    cout << "Output String: " << three_beginning_spaces.reverse() << endl;
     
     ReverseWords one_word("word");
     cout << "Input String: " << one_word.get_input_string() << endl;
