@@ -3,8 +3,6 @@ CXXFILES := reverse_words.cpp main.cpp
 CXXFLAGS := -Wall -Wextra -g
 LDFLAGS :=
 
-CXX := clang++
-
 OBJFILES := $(CXXFILES:.cpp=.o)
 
 $(PROG) : $(OBJFILES)
