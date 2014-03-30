@@ -2,7 +2,7 @@
 
 std::string ReverseWords::reverse ()
 {
-    bool first_find = true;
+    bool first_append = true;
 
     size_t length = this->input.length();
     
@@ -13,13 +13,13 @@ std::string ReverseWords::reverse ()
     {
         // Don't include the space before the last word since it will now be
         // the first word.
-        if (first_find && ((last_found - found) > 1))
+        if (first_append && ((last_found - found) > 1))
         {
             this->output.append (this->input.substr (found+1, last_found-found));
 
-            first_find = false;
+            first_append = false;
         }
-        else if (!first_find)
+        else if (!first_append)
             this->output.append (this->input.substr (found, last_found-found));
 
         // If the last space found was at the beginning of the line,
@@ -27,10 +27,13 @@ std::string ReverseWords::reverse ()
         if (found == 0)
             return this->output;
 
-        // last_found needs to be updated differently if there are trailing
-        // spaces. It ends up pointing at the spaces at the end so they get
-        // printed.
-        last_found = found;
+        // If we haven't done the first append yet, we're going past trailing
+        // spaces. Set last_found to find - 1 to go past the space.
+        if (first_append)
+            last_found = found - 1;
+        else
+            last_found = found;
+
         found = this->input.find_last_of (' ', found-1);
 
         // If we found two spaces in a row, look again.
