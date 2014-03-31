@@ -1,5 +1,5 @@
 PROG := leetcode
-CXXFILES := reverse_words.cpp main.cpp
+CXXFILES := reverse_words.cpp RPN.cpp main.cpp
 CXXFLAGS := -Wall -Wextra -g
 LDFLAGS :=
 
